@@ -4,7 +4,11 @@ import { Switch, Route } from 'react-router-dom'
 // COMPONENTS IMPORT
 import Dashboard from './component/dashboard/Dashboard'
 import Cover from './component/dashboard/Cover'
+import About from './component/dashboard/About'
+
 import Navbar from './component/layout/Navbar'
+import Footer from './component/layout/Footer'
+
 import PostDetails from './component/posts/PostDetails'
 import SignIn from './component/auth/SignIn'
 import SignUp from './component/auth/SignUp'
@@ -20,6 +24,7 @@ class App extends Component {
 
            <Route exact path='/' component={Cover}></Route>    
            <Route exact path='/blogger' component={Dashboard}></Route>
+           <Route exact path='/about' component={About}></Route>
 
            <Route path='/post/:id' component={PostDetails}></Route>                  
            <Route path='/signin' component={SignIn}></Route> 
@@ -27,6 +32,8 @@ class App extends Component {
            <Route path='/create' component={CreatePost}></Route>      
 
          </Switch>
+
+         <Footer />
       </div>
     );
   }

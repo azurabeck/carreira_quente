@@ -1,0 +1,54 @@
+.postBlock {
+    background-color: #fff;
+    margin: 0px;
+    margin-bottom: 10px;
+    border-radius: 2px;
+    padding: 20px;
+    width: 100%;
+    box-shadow: 3px 2px 6px 1px #c7c7c7;
+}
+
+.imageDetails img {
+  max-height: 130px;
+  -o-object-fit: cover;
+  object-fit: cover;
+  width: 100%;
+  -o-object-position: center;
+  object-position: center;
+}
+
+.postDescription {
+    height: 57px;
+    max-height: 57px;
+    font-size: 12px;
+    color: #b2b0b0;
+    border: 1px dashed #e5dddd;
+    width: 100%;
+    padding: 5px;
+    overflow-y: auto;
+  }
+
+  ul.postDetails {
+    list-style: none;
+    padding: 0px;
+  }
+  ul.postDetails li {
+    display: inline-flex;
+    margin-right: 15px;
+  }
+  
+  ul.postDetails li span {
+    margin-left: 5px;
+    color: #D85050;
+  }
+
+.bloggerButton {
+  text-align: center;
+  border-top: 1px solid rgb(228, 228, 228);
+  margin-top: 10px;
+  padding-top: 15px;
+}
+
+.bloggerButton .readBtn {
+    position: unset;
+}

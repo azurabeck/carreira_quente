@@ -2,15 +2,27 @@ import React from 'react'
 import { NavLink } from 'react-router-dom'
 import { connect } from 'react-redux'
 import { signOut } from '../../store/actions/authActions'
+import { Row, Col } from 'react-bootstrap'
 
 const SignedInLinks = (props) => {
 
     return (
-        <ul className='right'>
-            <li> <NavLink to='/create'>NewPost</NavLink> </li>
-            <li> <a onClick={props.signOut}>Log Out</a> </li>
-            <li> <NavLink to='/' className='btn btn-floating pink lighten-1'>{props.profile.initials}</NavLink> </li>
-        </ul> 
+
+        <Row className='nav-menu'>
+            <Col md={6}>
+                <ul>
+                    <li> <NavLink to="/">Home</NavLink> </li>
+                    <li> <NavLink to="/blogger">Blogger</NavLink> </li>
+                    <li> <NavLink to="/about">About</NavLink> </li>
+                </ul> 
+            </Col>
+            <Col md={6}>
+                <ul className='right'>
+                    <li> <NavLink to='/create'>NewPost</NavLink> </li>
+                    <li> <a onClick={props.signOut}>Log Out</a> </li>
+                </ul> 
+            </Col>
+        </Row>
     )
 }
 

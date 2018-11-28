@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { compose } from 'redux'
 import { firestoreConnect } from 'react-redux-firebase'
-import { Row, Col } from 'react-bootstrap'
+import { Grid, Row, Col } from 'react-bootstrap'
 
 // COMPONENT IMPORT
 import Brand from '../layout/Brand'
@@ -20,15 +20,18 @@ class Dashboard extends Component {
 
                 <Brand brand='default'/>
 
-                <Row>                
-                    <Col md={9}>                    
-                        <PostList posts={posts} />
-                    </Col>                
-                        
-                    <Col md={3}>                    
-                        <Notifications />
-                    </Col>
-                </Row>
+                <Grid>
+                    <Row>                
+                        <Col md={8}>                    
+                            <PostList posts={posts} />
+                        </Col>                
+                            
+                        <Col md={4}>                    
+                            <Notifications />
+                        </Col>
+                    </Row>
+                </Grid>
+                
 
             </section>
         )

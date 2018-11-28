@@ -60,3 +60,7 @@ a {
     color: #eee;
     text-decoration: none;
 }
+
+ul.right {
+    text-align: right;
+}

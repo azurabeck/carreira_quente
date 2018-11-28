@@ -1,0 +1,77 @@
+.recent-post {
+    display: block;
+    background-color: white;
+    min-height: 300px;
+    border-radius: 2px;
+    box-shadow: 2px 2px 4px 0px #b7b7b7;
+    padding: 5px;
+    text-align: center;
+    position: relative;
+    margin-bottom: 15px;
+}
+
+.image {
+    display: block;
+    width: 100%;
+    min-height: 130px;
+    background-color: aqua;
+}
+
+.image img {
+    max-height: 130px;
+    object-fit: cover;
+    width: 100%;
+    object-position: center;
+    min-height: 130px;
+}
+
+.title {
+    color: #222222;
+    font: normal bold 36px Montserrat, Helvetica, FreeSans, sans-serif;
+    font-size: 15px;
+    letter-spacing: 0.2px;
+    margin: 0 0 15px;
+    text-transform: uppercase;
+    width: 100%;
+}
+
+.authorAndDate {
+    font-size: 12px;
+    font-weight: 300;
+    padding: 0;
+    color: #555555;
+    margin-right: 5px;
+    text-align: center;
+    margin-bottom: 15px;
+}
+
+.readBtn {
+    position: absolute;
+    bottom: 10px;
+    left: 0;
+    width: 100%;
+}
+
+.readBtn a {
+    background: #000000;
+    border-radius: 2px;
+    color: #fff;
+    display: inline-block;
+    font-size: 10px;
+    letter-spacing: 2px;
+    line-height: 1.32;
+    padding: 0.85rem 1.5rem;
+    text-transform: uppercase;
+    -webkit-transition: all 0.3s;
+    -moz-transition: all 0.3s;
+    transition: all 0.3s;
+}
+
+.readBtn a:hover {
+    background: #222222;
+} 
+
+a:hover {
+    text-decoration: none;
+    cursor: pointer;
+}

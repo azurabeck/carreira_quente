@@ -1,0 +1,21 @@
+.colorYellow {color: #EF9443;}
+.colorPurple {color: #895399;}
+.colorBlue{color: #20AEC6;}
+.colorPink{color: #E0417B;}
+.colorRed{color: #D85050;}
+.colorGreen{color: #009245;}
+.colorLiveRed{color: #F1003C;}
+
+.borderGreen {      
+    border: 1px solid #009245;
+}
+.borderYellow {      
+    border: 1px solid #EF9443;
+}
+.borderRed {      
+    border: 1px solid #E0417B;
+}
+
+.contentControlItem a .material-icons:hover {
+    color: #EF9443;
+}

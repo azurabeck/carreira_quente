@@ -1,5 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
+import { firestoreConnect } from 'react-redux-firebase'
+import { compose } from 'redux'
 import { createPost } from '../../store/actions/postActions'
 import { Redirect } from 'react-router-dom'
 
@@ -31,7 +33,7 @@ export class CreatePost extends Component {
 
   render() {
 
-    const { auth } = this.props
+    const { auth , posts } = this.props
 
     if(!auth.uid) {
         return <Redirect to='/signin' /> 
@@ -98,11 +100,14 @@ export class CreatePost extends Component {
   }
 }
 
-const mapStateToProps = (state) => {
+
+const mapStateToProps = (state) => {  
   return {
+      posts: state.firestore.data.posts,
       auth: state.firebase.auth
   }
 }
+
 
 const mapDispatchToProps = (dispatch) => {
   return {    
@@ -110,4 +115,10 @@ const mapDispatchToProps = (dispatch) => {
   }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(CreatePost)
+
+export default compose(
+  connect(mapStateToProps),
+  firestoreConnect([
+      { collection: 'posts' }
+  ])
+)(CreatePost)

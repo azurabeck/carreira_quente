@@ -4,6 +4,9 @@ import { Link } from 'react-router-dom'
 import { connect } from 'react-redux'
 import { Row, Col } from 'react-bootstrap'
 
+
+import CreatePost from './CreatePost'
+
 const PostSummary = (props) => {
 
     const { post , auth } = props;
@@ -30,7 +33,9 @@ const PostSummary = (props) => {
                     auth.uid ? 
                         (
                             <Col md={12} className='bloggerButton'>
-                                    <span className='readBtn mr-5'><Link to={'/create/' + post.id} key={post.id}>Edit</Link></span>
+                                    <span className='readBtn mr-5'>
+                                        <Link to={'/create/' + post.id}>Edit</Link>
+                                    </span>
                                     <span className='readBtn'><Link to='/'>Delete</Link></span>
                             </Col>
                         ) : ''

@@ -1,5 +1,5 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
+import { Link , NavLink } from 'react-router-dom'
 import { connect } from 'react-redux'
 import { Row, Col } from 'react-bootstrap'
 
@@ -16,7 +16,18 @@ const Navbar = (props) => {
     return (
         <header className='header-menu'>
             <nav className='nav-wrapper'> 
-                {links}
+                <Row className='nav-menu'>
+                    <Col md={6}>
+                        <ul>
+                            <li> <NavLink to="/">Home</NavLink> </li>
+                            <li> <NavLink to="/blogger">Blogger</NavLink> </li>
+                            <li> <NavLink to="/about">About</NavLink> </li>
+                        </ul> 
+                    </Col>
+                    <Col md={6}>
+                        {links}
+                    </Col>
+                </Row>
             </nav> 
             <div className='clr'></div>
         </header>

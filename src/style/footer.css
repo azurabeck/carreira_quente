@@ -4,14 +4,23 @@ footer {
     display: table-row;
 }
 
+.footerGroup {
+    text-align: center;
+    display: table-cell;
+    vertical-align: middle;    
+}
+
+.footerGroupText {
+    margin: 40px;
+    text-align: center;
+}
+
 .footer_credits_oficial {
     color: #bbbbbb;
     display: block;
     font-family: Montserrat, sans-serif;
     font-size: 12px;
     line-height: 0px;
-    margin-bottom: 0;
-    margin-top: 5%;
     padding: 0;
     text-align: center;
     text-transform: uppercase;
@@ -27,7 +36,6 @@ footer {
     margin: 0 auto;
     text-align: center;
     padding-top: 10px;
-    padding-bottom: 10px;
 }
 
 .footer-social ul li {

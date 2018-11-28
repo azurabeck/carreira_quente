@@ -42,6 +42,10 @@ code {
 
 }
 
+.container {
+  margin-bottom: 40px;
+}
+
 .content {
   margin: 25px;
 }

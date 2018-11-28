@@ -29,7 +29,7 @@ export class SignUp extends Component {
   render() {
 
     const { auth , authError} = this.props
-    if(auth.uid) { return <Redirect to='/' /> }
+    if(!auth.uid) { return <Redirect to='/signin' /> }
 
     return (
       <div className='container'>
@@ -91,9 +91,3 @@ const mapDispatchToProps = (dispatch) => {
     }
 }
 export default connect(mapStateToProps, mapDispatchToProps)(SignUp)
-
-
-/*
-Utilizado para quem deseja criar um usuário
-
-*/

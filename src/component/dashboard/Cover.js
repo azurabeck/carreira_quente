@@ -35,7 +35,7 @@ export class Cover extends Component {
                                   <label className='title'>{post.title}</label>
                                   <label className='authorAndDate'>{post.authorLastName} {post.authorFirstName} * {moment(post.createdAt.toDate()).calendar()}}</label>
   
-                                  <span className='readBtn' ><Link to={`/posts/${post.id}`}>Read More</Link></span>
+                                  <span className='readBtn' ><Link to={`/post/${post.id}`}>Read More</Link></span>
                               </div>      
                           </Col>
                         )

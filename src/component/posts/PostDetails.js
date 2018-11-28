@@ -5,37 +5,40 @@ import { firestoreConnect } from 'react-redux-firebase'
 import { compose } from 'redux'
 import { Redirect } from 'react-router-dom'
 import moment from 'moment'
+import { Row , Col } from 'react-bootstrap'
+
+// COMPONENTS IMPORT 
+import Brand from '../layout/Brand'
 
 const PostDetails = (props) => {
 
-    const { post, auth } = props;
-    if(!auth.uid) {
-        return <Redirect to='/signin' /> 
-    }
+    const { post } = props;
 
     if (post) {
         return (
-            <div className='container section post-details'>
+            <section>
 
-                <div className='card z-depth-0'>
+                <Brand brand='default'/>
+                <Row className='content'>
 
-                    <div className='card-content'>
+                    <Col md={6} className='formContact'>                                
+                        <label className='imageDetails onViewMode'>                        
+                            <img className='imageOnViewMode' src={post.image} alt=''/>                        
+                        </label>            
+                    </Col>
 
-                        <span className='card-title'>{post.title}</span>
-                        <p>  {post.content} </p>
+                    <Col md={6}>                              
+                        <label className='postTitle onViewMode'>{post.title}</label>
+                        <ul className='postDetails onViewMode'>
+                            <li>Posted by <span>{post.authorFirstName} {post.authorLastName}</span></li>
+                            <li>Post at: <span>{moment(post.createdAt.toDate()).calendar()}</span></li>
+                        </ul>
+                        <p className='postText onViewMode'>{post.content}</p>                    
+                    </Col>
 
-                    </div>
+                </Row>
 
-                    <div className='card-action gret lighten-4 grey-text'>
-
-                        <div>Posted by {post.authorFirstName} {post.authorLastName} </div>
-                        <div>{moment(post.createdAt.toDate()).calendar()}</div>
-
-                    </div>
-
-                </div>
-
-            </div>
+            </section>
         )
     } else {
         return (

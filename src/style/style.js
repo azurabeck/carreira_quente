@@ -11,4 +11,5 @@ import './signIn.css'
 
 import './createPost.css'
 import './postSummary.css'
+import './postDetails.css'
 import './about.css'

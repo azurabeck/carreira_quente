@@ -1,0 +1,38 @@
+.formContact {
+    padding: 50px;
+    padding-top: 0;
+}
+
+.titleContact {
+    margin: 15px;
+}
+
+.formContact > form > input {
+    width: 100%;
+    margin-bottom: 10px;
+    padding-left: 5px;
+}
+
+.formContact > form > textarea {
+    width: 100%;
+    max-width: 100%;
+    min-height: 200px;
+    margin-bottom: 10px;
+    padding-left: 5px;
+}
+
+.contactBtn {
+    background: #000000;    
+    border: none;
+    border-radius: 2px;
+    color: #fff;
+    font-size: 10px;
+    letter-spacing: 2px;
+    line-height: 1.32;
+    padding: 0.85rem 1.5rem;
+    text-transform: uppercase;
+    -webkit-transition: all 0.3s;
+    -o-transition: all 0.3s;
+    transition: all 0.3s;
+
+}

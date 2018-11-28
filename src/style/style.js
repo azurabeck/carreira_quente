@@ -7,3 +7,4 @@ import './colors.css'
 
 import './createPost.css'
 import './postSummary.css'
+import './about.css'

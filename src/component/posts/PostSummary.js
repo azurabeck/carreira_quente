@@ -9,7 +9,7 @@ const PostSummary = ({post}) => {
             <Row className='postBlock'>
                 
                 <Col md={4} className='imageDetails'>
-                    <img src='' alt=''/>
+                    <img src={post.image} alt=''/>
                 </Col>
 
                 <Col md={8}>

@@ -61,7 +61,7 @@ export class CreatePost extends Component {
                             <div className='formBlock'>
                             
                               <label className='imageDetails onViewMode'>                              
-                                    <img className='imageOnViewMode' alt='' src={this.state.inputValue} />                
+                                    <img className='imageOnViewMode' alt='' src={this.state.image} />                
                               </label> 
                             
                             </div>

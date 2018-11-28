@@ -20,8 +20,7 @@ export class Cover extends Component {
 
           <div className='content'>         
                 
-              <Row className='container'>
-
+              <Row>
                     {
                       posts && posts.slice(0,4).map(post => {
                         return (
@@ -34,7 +33,7 @@ export class Cover extends Component {
                                   </label>
   
                                   <label className='title'>{post.title}</label>
-                                  <label className='authorAndDate'>{post.author} * {moment(post.createdAt.toDate()).calendar()}}</label>
+                                  <label className='authorAndDate'>{post.authorLastName} {post.authorFirstName} * {moment(post.createdAt.toDate()).calendar()}}</label>
   
                                   <span className='readBtn' ><Link to={`/posts/${post.id}`}>Read More</Link></span>
                               </div>      

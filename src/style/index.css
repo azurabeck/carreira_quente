@@ -9,6 +9,8 @@ body {
   height: 100%;
   width: 100%;
 
+  background-color: #efefef;
+  color: #333333;
   font-family: Montserrat, Helvetica, Sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;

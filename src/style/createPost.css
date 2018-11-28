@@ -1,0 +1,108 @@
+.contentCreate {
+    padding: 30px 15px;
+    position: relative;
+    max-width: 1100px;
+    width: auto;
+    margin: 0 auto;
+    margin-bottom: 30px;
+}
+
+select {
+    width: 100%;
+    height: 30px;
+  }
+  
+  .formPageTitle {
+    font-size: 24px;
+    display: block;
+    text-align: left;
+    width: 100%;
+    text-transform: uppercase;
+    color: gray;
+    font-weight: 300;
+  }
+  
+  .form {
+    width: 100%;
+    padding: 15px;
+    background-color: white;
+    border-radius: 2px;
+    box-shadow: 4px 4px 5px 1px #d2cdcd;
+    min-height: 66.2vh;
+  }
+  
+  .formField {
+    text-align: left;
+    padding: 10px;
+    padding-top: 15px;
+    padding-bottom: 15px; 
+    display: block;
+  }
+  
+  .formBlock {
+    margin: 15px;
+    margin-top: 0px;
+  }
+  
+  .formTitle {
+    color: #686464;
+    text-transform: uppercase;
+    font-size: 11px;
+    letter-spacing: 0.1em;
+  }
+  
+  .formInput > input {
+    display: block;
+    width: 100%;
+    padding-left: 5px; 
+  }
+  
+  .formInput > textarea {
+    display: block;
+    width: 100%;
+    max-width: 100%;
+    min-width: 100%;
+    height: 250px;
+    padding-left: 5px; 
+  }
+  
+  
+  .formInput > input::placeholder , .formInput > textarea::placeholder {
+      font-size: 12px;
+      letter-spacing: 0.05em;
+  }
+  
+  .formButton {
+    text-align: center;  
+  }
+  
+  .back {
+    background-color: #D85050;
+    color: white;
+    border: none;
+    width: 90px;
+    height: 40px;
+    margin-right: 5px;
+  }
+  
+  .back:hover {
+    background-color: #ce4444;
+  }
+  
+  .enter {
+    background-color: #20AEC6;
+    color: white;
+    border: none;
+    width: 90px;
+    height: 40px;
+    margin-right: 5px
+  }
+  
+  .enter:hover {
+    background-color: #0a8195;
+  }
+  
+  .enter:disabled {
+    background-color: #b2b0b0;
+  }
+  

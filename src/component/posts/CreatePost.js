@@ -3,11 +3,16 @@ import { connect } from 'react-redux'
 import { createPost } from '../../store/actions/postActions'
 import { Redirect } from 'react-router-dom'
 
+// EXTERNAL LIBRARY
+import { Row, Col } from 'react-bootstrap'
+
+
 export class CreatePost extends Component {
 
   state = {
       title:'',
-      content:''
+      content:'',
+      image: ''
 
   }
 
@@ -33,29 +38,59 @@ export class CreatePost extends Component {
     }
 
     return (
-      <div className='container'>
-        <form className='white' onSubmit={this.handleSubmit}>
-        
-            <h5 className='grey-text text-darken-3'>Create Post</h5>
-            <div className='input-field'>
-            
-                <label htmlFor='title'>Title</label>
-                <input type='text' id='title' onChange={this.handleChange}/>
-            
-            </div>
+      <div className='contentCreate'>
+       
+       <label className='formPageTitle'>
+              <span className='colorBlue'>Create </span> post
+        </label>
+       
+        <form className='form' onSubmit={this.handleSubmit}>
+       
+              <Row className='formField'>
+              
+                    <Col md={6} className='formField'>
 
-            <div className='input-field'>
-            
-                <label htmlFor='content'>Post Content</label>
-                <textarea className='materialize-text-area' id='content' onChange={this.handleChange}/>
-        
-            </div>
 
-            <div className='input-field'>
-            
-                <button className='btn pink lighten-1 z-depth-0'>Create</button>
-            
-            </div>
+                          <div className='formBlock'>
+                              <label htmlFor='image' className='formTitle'>Image URL</label>
+                              <div className='formInput'>
+                                    <input type='text' id='image' onChange={this.handleChange}/> 
+                              </div>
+                            </div>
+
+                            <div className='formBlock'>
+                            
+                              <label className='imageDetails onViewMode'>                              
+                                    <img className='imageOnViewMode' alt='' src={this.state.inputValue} />                
+                              </label> 
+                            
+                            </div>
+                              
+                    </Col>
+
+                    <Col md={6} className='formField'>
+                    
+                            <div className='formBlock'>            
+                                <label htmlFor='title' className='formTitle'>Title</label>
+                                <div className='formInput'>
+                                    <input type='text' id='title' onChange={this.handleChange}/> 
+                                </div>           
+                            </div>
+
+                            <div className='formBlock'>                      
+                                <label htmlFor='content'>Post Content</label>
+                                <div className='formInput'>
+                                    <textarea className='materialize-text-area' id='content' onChange={this.handleChange}/> 
+                                </div>                 
+                            </div>
+                    
+                    </Col>
+              
+              </Row>
+
+              <div className='formButton'>            
+                  <button className='enter' type='submit'>Create</button>            
+              </div>
         
         </form>
       </div>

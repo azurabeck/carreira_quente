@@ -16,8 +16,8 @@ const PostSummary = ({post}) => {
                     <label className='postTitle'>{post.title}</label>          
                     <label className='postDescription'>{post.content} </label>
                     <ul className='postDetails'>
-                        <li>Author: <span>{post.authorFirstName} {post.authorLastName}</span></li>
-                        <li>Post at: {moment(post.createdAt.toDate()).calendar()}</li>
+                        <li>Author: <span>{post.authorLastName} {post.authorFirstName}</span></li>
+                        <li>Post at: <span>{moment(post.createdAt.toDate()).calendar()}</span></li>
                     </ul>
                 </Col>
                 

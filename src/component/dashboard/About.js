@@ -1,11 +1,33 @@
 import React, { Component } from 'react'
+import { connect } from 'react-redux'
 import { Row, Col } from 'react-bootstrap'
+import { createContact } from '../../store/actions/contactActions'
 
 // COMPONENT IMPORT
 import Brand from '../layout/Brand'
 
 
 export class About extends Component {
+
+    state = {
+        name:'',
+        email: '',
+        tel: '',
+        content:'',
+    }
+
+    handleChange = (e) => {
+        this.setState({
+            [e.target.id]: e.target.value
+        })
+      }
+    
+      handleSubmit = (e) => {
+        e.preventDefault();
+        this.props.createContact(this.state);
+      }
+
+
   render() {
     return(
         <section>
@@ -40,16 +62,17 @@ export class About extends Component {
                         
                         <Col md={6} className='formContact'>
                         
-                                <form>
+                            <form onSubmit={this.handleSubmit}>
 
-                                    <input type='text' placeholder='name'></input>
-                                    <input type='email' placeholder='email'></input>
-                                    <input type='tel' placeholder='tel'></input>
-                                    <textarea placeholder='Send me a msg'></textarea>
+                                <input type='text' id='name' placeholder='name' onChange={this.handleChange}></input>
+                                <input type='email' id='email' placeholder='email' onChange={this.handleChange}></input>
+                                <input type='tel' id='tel' placeholder='tel' onChange={this.handleChange}></input>
+                                <textarea id='content' placeholder='Send me a msg' onChange={this.handleChange}></textarea>
 
-                                    <button className="contactBtn">Send</button>
+                                <Row className='buttonRow'><button className="contactBtn" type='submit' onClick={this.handleSubmit}>Send</button></Row>
+                                
 
-                                </form>                            
+                            </form>                            
                         
                         </Col>
 
@@ -62,4 +85,12 @@ export class About extends Component {
   }
 }
 
-export default About
+
+  const mapDispatchToProps = (dispatch) => {
+    return {    
+      createContact: (contact) => dispatch(createContact(contact))
+    }
+  }
+  
+  export default connect(null, mapDispatchToProps)(About)
+  

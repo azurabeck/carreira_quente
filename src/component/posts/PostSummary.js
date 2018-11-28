@@ -1,8 +1,13 @@
 import React from 'react'
 import moment from 'moment'
+import { Link } from 'react-router-dom'
+import { connect } from 'react-redux'
 import { Row, Col } from 'react-bootstrap'
 
-const PostSummary = ({post}) => {
+const PostSummary = (props) => {
+
+    const { post , auth } = props;
+
     return (
         <div className='post-list section'>
         
@@ -20,11 +25,29 @@ const PostSummary = ({post}) => {
                         <li>Post at: <span>{moment(post.createdAt.toDate()).calendar()}</span></li>
                     </ul>
                 </Col>
+
+                {
+                    auth.uid ? 
+                        (
+                            <Col md={12} className='bloggerButton'>
+                                    <span className='readBtn mr-5'><Link to='/'>Edit</Link></span>
+                                    <span className='readBtn'><Link to='/'>Delete</Link></span>
+                            </Col>
+                        ) : ''
+                }
                 
+                
+
             </Row>
         
         </div>
     )
 }
 
-export default PostSummary
+const mapStateToProps = (state) => {
+    return {
+        auth: state.firebase.auth,
+    }
+}
+
+export default connect(mapStateToProps)(PostSummary)

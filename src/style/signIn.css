@@ -1,0 +1,7 @@
+.contentCreate.sigIn {
+    max-width: 500px;
+}
+
+.contentCreate.sigIn .form {
+    min-height: 30vh;
+}

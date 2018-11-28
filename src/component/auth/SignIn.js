@@ -30,35 +30,34 @@ export class SignIn extends Component {
     if(auth.uid) { return <Redirect to='/' /> }
 
     return (
-      <div className='container'>
-        <form className='white' onSubmit={this.handleSubmit}>
+      <div className='contentCreate sigIn'>
+       
+       <label className='formPageTitle'>
+              <span className='colorBlue'>Sign </span> In
+        </label>
+       
+        <form className='form' onSubmit={this.handleSubmit}>
         
-            <h5 className='grey-text text-darken-3'>Sign In</h5>
-            <div className='input-field'>
-            
-                <label htmlFor='email'>Email</label>
-                <input type='email' id='email' onChange={this.handleChange}/>
-            
+            <div className='formBlock'>            
+                <label htmlFor='email' className='formTitle'>Email</label>
+                <div className='formInput'>
+                      <input type='email' id='email' onChange={this.handleChange}/> 
+                </div>                           
             </div>
 
-            <div className='input-field'>
-            
-                <label htmlFor='password'>Email</label>
-                <input type='password' id='password' onChange={this.handleChange}/>
-        
+            <div className='formBlock'>            
+                <label htmlFor='password' className='formTitle'>Password</label>
+                <div className='formInput'>
+                      <input type='password' id='password' onChange={this.handleChange}/>
+                </div>        
             </div>
 
-            <div className='input-field'>
-            
-                <button className='btn pink lighten-1 z-depth-0'>Login</button>
-                <div className='red-text center'>
-                
-                    {authError ? <p>{authError}</p> : null}
-                
+            <div className='formButton'>            
+                <button className='enter mt-30'>Login</button>
+                <div className='red-text center'>                
+                    {authError ? <p>{authError}</p> : null}                
                 </div>
-
             </div>
-        
         </form>
       </div>
     )

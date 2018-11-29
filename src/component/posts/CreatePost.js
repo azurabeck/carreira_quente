@@ -12,12 +12,12 @@ import { Row, Col } from 'react-bootstrap'
 export class CreatePost extends Component {
 
   state = {
-      title:'',
+      title: '',
       content:'',
       image: ''
-
   }
 
+  
   handleChange = (e) => {
     this.setState({
         [e.target.id]: e.target.value
@@ -30,20 +30,19 @@ export class CreatePost extends Component {
     this.props.history.push('/')
   }
 
-
   render() {
 
-    const { auth , posts } = this.props
+    const { auth , post} = this.props
 
     if(!auth.uid) {
         return <Redirect to='/signin' /> 
     }
-
+    
     return (
       <div className='contentCreate'>
        
        <label className='formPageTitle'>
-              <span className='colorBlue'>Create </span> post
+              <span className='colorBlue'> {post ? 'Edit' : 'Create'} </span> post
         </label>
        
         <form className='form' onSubmit={this.handleSubmit}>
@@ -101,12 +100,16 @@ export class CreatePost extends Component {
 }
 
 
-const mapStateToProps = (state) => {  
+const mapStateToProps = (state, ownProps) => {
+  const id = ownProps.match.params.id;
+  const posts = state.firestore.data.posts;
+  const post = posts ? posts[id] : null
   return {
-      posts: state.firestore.data.posts,
+      post: post,
       auth: state.firebase.auth
   }
 }
+
 
 
 const mapDispatchToProps = (dispatch) => {
@@ -117,7 +120,7 @@ const mapDispatchToProps = (dispatch) => {
 
 
 export default compose(
-  connect(mapStateToProps),
+  connect(mapStateToProps, mapDispatchToProps),
   firestoreConnect([
       { collection: 'posts' }
   ])

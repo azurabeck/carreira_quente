@@ -2,7 +2,6 @@ import React from 'react'
 import { NavLink } from 'react-router-dom'
 import { connect } from 'react-redux'
 import { signOut } from '../../store/actions/authActions'
-import { Row, Col } from 'react-bootstrap'
 
 const SignedInLinks = (props) => {
 
@@ -10,7 +9,7 @@ const SignedInLinks = (props) => {
         <ul className='right'>
             <li> <NavLink to='/create'>NewPost</NavLink> </li>
             <li> <NavLink to='/signup'>Signup</NavLink> </li>
-            <li> <a onClick={props.signOut}>Log Out</a> </li>
+            <li> <a href='/' onClick={props.signOut}>Log Out</a> </li>
         </ul> 
     )
 }

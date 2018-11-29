@@ -2,6 +2,7 @@ import './index.css'
 import './colors.css'
 import './margin.css'
 
+import './admin.css'
 import './cover.css'
 import './navbar.css'
 import './footer.css'

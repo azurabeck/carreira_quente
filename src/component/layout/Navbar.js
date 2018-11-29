@@ -1,10 +1,9 @@
 import React from 'react'
-import { Link , NavLink } from 'react-router-dom'
+import { NavLink } from 'react-router-dom'
 import { connect } from 'react-redux'
 import { Row, Col } from 'react-bootstrap'
 
 // COMPONENTS IMPORTS
-import SignInLinks from './SignedInLinks'
 import SignedOutLinks from './SignedOutLinks'
 import SignedInLinks from './SignedInLinks';
 

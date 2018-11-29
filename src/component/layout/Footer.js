@@ -3,14 +3,10 @@ import React, {Component} from 'react';
 // EXTERNAL LIBRARY
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faLinkedin } from '@fortawesome/free-brands-svg-icons';
-import MaterialIcon from 'material-icons-react'
 
 class Footer extends Component {
 
-
-
     render() {
-
 
         return (
             <footer id="footer">

@@ -29,7 +29,8 @@ class App extends Component {
            <Route path='/post/:id' component={PostDetails}></Route>                  
            <Route path='/signin' component={SignIn}></Route> 
            <Route path='/signup' component={SignUp}></Route>     
-           <Route path='/create' component={CreatePost}></Route>      
+           <Route path='/create' component={CreatePost}></Route> 
+           <Route path='/edit/:id' component={CreatePost}></Route>      
 
          </Switch>
 

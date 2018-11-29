@@ -24,7 +24,7 @@ export class Cover extends Component {
                     {
                       posts && posts.slice(0,4).map(post => {
                         return (
-                          <Col md={3}>
+                          <Col md={3} key={post.id}>
                               <div className='recent-post'>
                                   <label className='image'>
   
@@ -34,8 +34,8 @@ export class Cover extends Component {
   
                                   <label className='title'>{post.title}</label>
                                   <label className='authorAndDate'>{post.authorLastName} {post.authorFirstName} * {moment(post.createdAt.toDate()).calendar()}}</label>
-  
                                   <span className='readBtn' ><Link to={`/post/${post.id}`}>Read More</Link></span>
+                                  
                               </div>      
                           </Col>
                         )
@@ -57,5 +57,7 @@ const mapStateToProps = (state) => {
 }
 export default compose(
   connect(mapStateToProps),
-  firestoreConnect([{ collection: 'posts' }])   
+  firestoreConnect([
+    { collection: 'posts', orderBy: ['createdAt' , 'desc'] }
+  ])   
 )(Cover)

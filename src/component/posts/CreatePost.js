@@ -45,7 +45,7 @@ export class CreatePost extends Component {
 
   render() {
 
-    const { auth , match , post } = this.props
+    const { auth , match } = this.props
     const isEdit = match.url.indexOf('edit') !== -1;
     
     if(!auth.uid) {

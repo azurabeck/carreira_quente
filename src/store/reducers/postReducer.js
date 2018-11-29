@@ -16,8 +16,14 @@ const postReducer = (state = initState, action) => {
         case 'EDIT_POST':
             console.log('edit_post', action.post)
             return state;
-        case 'EDIT_POST':
-            console.log('edit_post', action.post)
+        case 'EDIT_POST_ERROR':
+            console.log('edit_post', action.err)
+            return state;
+        case 'DELETE_POST':
+            console.log('delete_post', action.firebaseId)
+            return state;
+        case 'DELETE_POST_ERROR':
+            console.log('delete_post', action.err)
             return state;
         default:
             return state

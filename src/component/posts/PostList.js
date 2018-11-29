@@ -1,18 +1,30 @@
-import React from 'react'
+import React, {Component} from 'react'
 import PostSummary from './PostSummary'
 import { Link } from 'react-router-dom'
 import { connect } from 'react-redux'
 import MaterialIcon from 'material-icons-react'
+import { deletePost } from '../../store/actions/postActions';
 
-const PostList = (props) => {
+class PostList extends Component {
 
-    const { posts , auth } = props;
+    handleClick(firebaseId) {
+        console.log('aqui' , firebaseId)
+        this.props.deletePost(firebaseId)
+    }
+
+    render() {
+
+    const { posts , auth } = this.props;
+
 
     return (
         <div>
 
             {
              posts && posts.map(post => {
+              
+                const firebaseId = post.id
+
                 return (
                     <div className={auth.uid ? 'mb-35' : ''} key={post.id} >
                         <Link to={'/post/' + post.id}><PostSummary post={post} /></Link>       
@@ -22,9 +34,11 @@ const PostList = (props) => {
                                     <span className='mr-5'>
                                         <Link to={'/edit/' + post.id} key={post.id} >
                                             <MaterialIcon icon='edit' id='adminButton'/>
-                                        </Link>
+                                        </Link> 
+                                        <span onClick={() => this.handleClick(firebaseId)}>
+                                            <MaterialIcon icon='delete' id='adminButton'/>
+                                        </span>
                                     </span>
-                                    <span><MaterialIcon icon='delete' id='adminButton'/></span>
                                 </div>
                             ) : ''
                         }                              
@@ -35,7 +49,10 @@ const PostList = (props) => {
             
         </div>
     )
+    }
 }
+
+
 
 const mapStateToProps = (state) => {
     return {
@@ -43,4 +60,10 @@ const mapStateToProps = (state) => {
     }
 }
 
-export default connect(mapStateToProps)(PostList)
+const mapDispatchToProps = (dispatch) => {
+    return {
+        deletePost: (firebaseId) => dispatch(deletePost(firebaseId))
+    }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(PostList)

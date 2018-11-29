@@ -2,22 +2,26 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { firestoreConnect } from 'react-redux-firebase'
 import { compose } from 'redux'
-import { createPost } from '../../store/actions/postActions'
+import { createPost , editPost } from '../../store/actions/postActions'
 import { Redirect } from 'react-router-dom'
 
 // EXTERNAL LIBRARY
 import { Row, Col } from 'react-bootstrap'
 
-
 export class CreatePost extends Component {
 
-  state = {
-      title: '',
-      content:'',
-      image: ''
-  }
+  constructor(props) {
+    super(props)
 
+    this.state = { title: '', content:'', image: ''}
+
+    this.handleChange = this.handleChange.bind(this)
+    this.handleSubmit = this.handleSubmit.bind(this)
+    this.handleUpdate = this.handleUpdate.bind(this) 
+
+  }
   
+
   handleChange = (e) => {
     this.setState({
         [e.target.id]: e.target.value
@@ -26,14 +30,24 @@ export class CreatePost extends Component {
 
   handleSubmit = (e) => {
     e.preventDefault();
-    this.props.createPost(this.state);
+    this.props.createPost(this.state);       
     this.props.history.push('/')
+  }
+
+  handleUpdate = (e) => {
+    e.preventDefault();   
+
+    const firebaseId = this.props.match.params.id
+
+    this.props.editPost(this.state, firebaseId);
+    this.props.history.push('/')   
   }
 
   render() {
 
-    const { auth , post} = this.props
-
+    const { auth , match , post } = this.props
+    const isEdit = match.url.indexOf('edit') !== -1;
+    
     if(!auth.uid) {
         return <Redirect to='/signin' /> 
     }
@@ -42,10 +56,10 @@ export class CreatePost extends Component {
       <div className='contentCreate'>
        
        <label className='formPageTitle'>
-              <span className='colorBlue'> {post ? 'Edit' : 'Create'} </span> post
+              <span className='colorBlue'> {isEdit ? 'Edit' : 'Create'} </span> post
         </label>
        
-        <form className='form' onSubmit={this.handleSubmit}>
+        <form className='form' onSubmit={isEdit ? this.handleUpdate : this.handleSubmit}>
        
               <Row className='formField'>
               
@@ -114,7 +128,8 @@ const mapStateToProps = (state, ownProps) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {    
-    createPost: (post) => dispatch(createPost(post))
+    createPost: (post) => dispatch(createPost(post)),
+    editPost: (post, firebaseId) => dispatch(editPost(post, firebaseId))
   }
 }
 

@@ -18,8 +18,7 @@ class Dashboard extends Component {
     constructor(props) {
         super(props)
         this.state = {
-            query: '',
-            showPost: []
+            query: ''
         }
     }
 
@@ -34,18 +33,6 @@ class Dashboard extends Component {
     render() {
 
         const { posts } = this.props
-        const { query } = this.state;
-        let showingPost
-
-        if(query) {
-            const match = new RegExp(escapeRegExp(query), 'i')
-            showingPost = posts.filter((post) =>
-                match.test(post.title))
-        } else {
-            showingPost = posts
-        }
-
-        console.log(showingPost)
 
         return(
             <section id='blogger'>
@@ -55,12 +42,11 @@ class Dashboard extends Component {
                 <Grid>
                     <Row>                
                         <Col md={8}>                    
-                            <PostList posts={showingPost} />
+                            <PostList posts={posts} query={this.state.query} />
                         </Col>                
                             
                         <Col md={4}>  
                             <Search 
-                                posts={posts} 
                                 onChange={(event) => this.updateQuery(event.target.value)} 
                                 query={this.state.query}/>
                             <Recent />                  

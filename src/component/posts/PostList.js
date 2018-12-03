@@ -6,25 +6,7 @@ import MaterialIcon from 'material-icons-react'
 import { deletePost } from '../../store/actions/postActions';
 import escapeRegExp from 'escape-string-regexp'
 
-
-let showingPost
-
 class PostList extends Component {
-
-    constructor(props) {
-        super(props)
-        this.state = {
-            query: '',
-            showPost: []
-        }
-    }
-
-    updateQuery = (query) => {
-        this.setState({query})
-        if(query) {
-            this.setState({ showPost: query });
-        }
-    }
 
     handleClick(firebaseId) {
         this.props.deletePost(firebaseId)
@@ -32,8 +14,7 @@ class PostList extends Component {
 
     render() {
 
-    const { posts , auth } = this.props;
-    const { query } = this.state;
+    const { posts , auth , query } = this.props;
     let showingPost
 
     if(query) {

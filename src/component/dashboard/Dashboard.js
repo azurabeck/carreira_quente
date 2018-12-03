@@ -6,8 +6,10 @@ import { Grid, Row, Col } from 'react-bootstrap'
 
 // COMPONENT IMPORT
 import Brand from '../layout/Brand'
-import Notifications from './Notifications'
 import PostList from '../posts/PostList'
+import Sorter from '../widgets/Wid.Sorter'
+import Search from '../widgets/Wid.Search'
+import Recent from '../widgets/Wid.Recent'
 
 class Dashboard extends Component {
 
@@ -26,8 +28,10 @@ class Dashboard extends Component {
                             <PostList posts={posts} />
                         </Col>                
                             
-                        <Col md={4}>                    
-                            <Notifications />
+                        <Col md={4}>  
+                            <Search />
+                            <Recent />                  
+                            <Sorter />
                         </Col>
                     </Row>
                 </Grid>

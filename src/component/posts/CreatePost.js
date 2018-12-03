@@ -15,12 +15,11 @@ export class CreatePost extends Component {
 
     const { post } = this.props
 
-    if(post) {
-      this.state = { title: post.title, content: post.content, image: post.image}
-    } else {
-      this.state = { title: '', content:'', image: ''}
+    this.state = { 
+      title: post ? post.title : '', 
+      content: post ? post.content : '',
+      image:  post ? post.image : '',
     }
-
 
     this.handleChange = this.handleChange.bind(this)
     this.handleSubmit = this.handleSubmit.bind(this)

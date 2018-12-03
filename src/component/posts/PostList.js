@@ -4,24 +4,51 @@ import { Link } from 'react-router-dom'
 import { connect } from 'react-redux'
 import MaterialIcon from 'material-icons-react'
 import { deletePost } from '../../store/actions/postActions';
+import escapeRegExp from 'escape-string-regexp'
+
+
+let showingPost
 
 class PostList extends Component {
 
+    constructor(props) {
+        super(props)
+        this.state = {
+            query: '',
+            showPost: []
+        }
+    }
+
+    updateQuery = (query) => {
+        this.setState({query})
+        if(query) {
+            this.setState({ showPost: query });
+        }
+    }
+
     handleClick(firebaseId) {
-        console.log('aqui' , firebaseId)
         this.props.deletePost(firebaseId)
     }
 
     render() {
 
     const { posts , auth } = this.props;
+    const { query } = this.state;
+    let showingPost
 
+    if(query) {
+        const match = new RegExp(escapeRegExp(query), 'i')
+        showingPost = posts.filter((post) =>
+             match.test(post.title))
+    } else {
+        showingPost = posts
+    }
 
     return (
         <div>
-
+            
             {
-             posts && posts.map(post => {
+             showingPost && showingPost.map(post => {
               
                 const firebaseId = post.id
 

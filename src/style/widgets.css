@@ -1,11 +1,16 @@
 /* #region sorter*/
-.sidebar {
-    border-bottom: 1px solid #dfdfdf;
+.sidebar {    
     clear: both;
     font-size: 13px;
     line-height: 23px;
     margin-bottom: 20px;
-    padding: 0 0 35px;
+    padding: 30px;
+    padding-top: 0px;
+}
+
+.sidebarBlock {
+    border-bottom: 1px solid #dfdfdf;
+    padding-bottom: 20px;
 }
 
 .sidebar h2 {

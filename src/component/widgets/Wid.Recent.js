@@ -14,35 +14,31 @@ class Recent extends Component {
 
     return (
       <div className='sidebar'>
-            
-            <h2>Recent on blog</h2>
+            <div className='sidebarBlock'>  
+                <h2>Recent on blog</h2>
+                <Row>
+                      {
+                        posts && posts.slice(0,1).map(post => {
+                          return (
+                            <div key={post.id}>
+                                <div className='recent-post'>
+                                    <label className='image'>
+    
+                                        <img src={post.image} alt='' />
+    
+                                    </label>
+    
+                                    <label className='title'>{post.title}</label>
+                                    <label className='authorAndDate'>{post.authorLastName} {post.authorFirstName} * {moment(post.createdAt.toDate()).calendar()}}</label>
+                                    <span className='readBtn' ><Link to={`/post/${post.id}`}>Read More</Link></span>
+                                    
+                                </div>      
+                            </div>
+                          )
+                        })   
+                      } 
 
-            <div className='content'>         
-                
-              <Row>
-                    {
-                      posts && posts.slice(0,1).map(post => {
-                        return (
-                          <Col md={12} key={post.id}>
-                              <div className='recent-post'>
-                                  <label className='image'>
-  
-                                      <img src={post.image} alt='' />
-  
-                                  </label>
-  
-                                  <label className='title'>{post.title}</label>
-                                  <label className='authorAndDate'>{post.authorLastName} {post.authorFirstName} * {moment(post.createdAt.toDate()).calendar()}}</label>
-                                  <span className='readBtn' ><Link to={`/post/${post.id}`}>Read More</Link></span>
-                                  
-                              </div>      
-                          </Col>
-                        )
-                      })   
-                    } 
-
-              </Row>
-          
+                </Row>
           </div>
       </div>
     )

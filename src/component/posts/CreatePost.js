@@ -13,7 +13,14 @@ export class CreatePost extends Component {
   constructor(props) {
     super(props)
 
-    this.state = { title: '', content:'', image: ''}
+    const { post } = this.props
+
+    if(post) {
+      this.state = { title: post.title, content: post.content, image: post.image}
+    } else {
+      this.state = { title: '', content:'', image: ''}
+    }
+
 
     this.handleChange = this.handleChange.bind(this)
     this.handleSubmit = this.handleSubmit.bind(this)
@@ -51,7 +58,9 @@ export class CreatePost extends Component {
     if(!auth.uid) {
         return <Redirect to='/signin' /> 
     }
-    
+
+ 
+
     return (
       <div className='contentCreate'>
        
@@ -69,14 +78,14 @@ export class CreatePost extends Component {
                           <div className='formBlock'>
                               <label htmlFor='image' className='formTitle'>Image URL</label>
                               <div className='formInput'>
-                                    <input type='text' id='image' onChange={this.handleChange}/> 
+                                    <input type='text' id='image' onChange={this.handleChange} value={this.state.image}/> 
                               </div>
                             </div>
 
                             <div className='formBlock'>
                             
                               <label className='imageDetails onViewMode'>                              
-                                    <img className='imageOnViewMode' alt='' src={this.state.image} />                
+                                    <img className='imageOnViewMode' alt='' src={this.state.image}/>                
                               </label> 
                             
                             </div>
@@ -88,14 +97,18 @@ export class CreatePost extends Component {
                             <div className='formBlock'>            
                                 <label htmlFor='title' className='formTitle'>Title</label>
                                 <div className='formInput'>
-                                    <input type='text' id='title' onChange={this.handleChange}/> 
+                                    <input type='text' id='title' onChange={this.handleChange} value={this.state.title}/> 
                                 </div>           
                             </div>
 
                             <div className='formBlock'>                      
                                 <label htmlFor='content'>Post Content</label>
                                 <div className='formInput'>
-                                    <textarea className='materialize-text-area' id='content' onChange={this.handleChange}/> 
+                                    <textarea 
+                                      className='materialize-text-area' 
+                                      id='content' 
+                                      onChange={this.handleChange}
+                                      value={this.state.content}/> 
                                 </div>                 
                             </div>
                     

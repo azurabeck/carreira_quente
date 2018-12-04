@@ -52,7 +52,7 @@
     right: -4px;
 }
 
-.nav-menu li.contact::after {
+.nav-menu li.about::after, .nav-menu li.login::after  {
     content: "";
 }
 
@@ -69,4 +69,29 @@ a {
 
 ul.right {
     text-align: right;
+}
+
+.login > a > i.material-icons.md-24.md-dark {
+    color: #999;
+    height: 30px;
+    width: 30px;
+    text-align: center;
+    vertical-align: middle;
+}
+
+.login > a > i.material-icons.md-24.md-dark:hover {
+    color: #20AEC6
+}
+
+.login > a > i.material-icons.md-24.md-dark#loggedOut {
+    padding-top: 5px;
+}
+
+.login > a > i.material-icons.md-24.md-dark#loggedOn {
+    padding-top: 4px;
+    color: #379aab;
+}
+
+.login > a > i.material-icons.md-24.md-dark#loggedOn:hover {
+    color: #999;
 }

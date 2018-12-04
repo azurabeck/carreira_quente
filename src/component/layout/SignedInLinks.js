@@ -2,6 +2,7 @@ import React from 'react'
 import { NavLink } from 'react-router-dom'
 import { connect } from 'react-redux'
 import { signOut } from '../../store/actions/authActions'
+import MaterialIcons from 'material-icons-react'
 
 const SignedInLinks = (props) => {
 
@@ -9,7 +10,7 @@ const SignedInLinks = (props) => {
         <ul className='right'>
             <li> <NavLink to='/create'>NewPost</NavLink> </li>
             <li> <NavLink to='/signup'>Signup</NavLink> </li>
-            <li> <a href='/' onClick={props.signOut}>Log Out</a> </li>
+            <li className='login'> <a href='/' onClick={props.signOut}><MaterialIcons id='loggedOn' icon='how_to_reg'/></a> </li>
         </ul> 
     )
 }

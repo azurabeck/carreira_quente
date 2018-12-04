@@ -20,7 +20,7 @@ const Navbar = (props) => {
                         <ul>
                             <li> <NavLink to="/">Home</NavLink> </li>
                             <li> <NavLink to="/blogger">Blogger</NavLink> </li>
-                            <li> <NavLink to="/about">About</NavLink> </li>
+                            <li className='about'> <NavLink to="/about">About</NavLink> </li>
                         </ul> 
                     </Col>
                     <Col md={6}>

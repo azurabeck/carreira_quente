@@ -10,8 +10,8 @@ class Sorter extends Component {
     activeTimeA: false,
   }
 
-  render() {
 
+  render() {
     
     return (
       <div className='sidebar'>
@@ -22,17 +22,19 @@ class Sorter extends Component {
         
                     <span onClick={(e) => this.setState(prevState => ({ activeTimeA: false, activeTimeD: true }))}>
                         <button value='timestamp-descending' 
-                            className={this.state.activeTimeD ? 'active' : ''}>
-                                {this.state.activeTimeD ? <MaterialIcon id='iconSelected' icon='arrow_right' /> : ''}
-                                <span>Newest</span>
+                                onClick={this.props.setNewest}
+                                className={this.state.activeTimeD ? 'active' : ''}>
+                                        {this.state.activeTimeD ? <MaterialIcon id='iconSelected' icon='arrow_right' /> : ''}
+                                        <span>Newest</span>
                         </button>    
                     </span>
 
                     <span onClick={(e) => this.setState({activeTimeA: true, activeTimeD: false})}>
                         <button value='timestamp-ascending' 
-                            className={this.state.activeTimeA ? 'active' : ''}>
-                                {this.state.activeTimeA ? <MaterialIcon id='iconSelected' icon='arrow_right' /> : ''}
-                                <span>Oldest</span>
+                                onClick={this.props.setOldest}
+                                className={this.state.activeTimeA ? 'active' : ''}>
+                                        {this.state.activeTimeA ? <MaterialIcon id='iconSelected' icon='arrow_right' /> : ''}
+                                        <span>Oldest</span>
                         </button> 
                     </span>  
                 </div>

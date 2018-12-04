@@ -12,13 +12,14 @@ import Sorter from '../widgets/Wid.Sorter'
 import Search from '../widgets/Wid.Search'
 import Recent from '../widgets/Wid.Recent'
 
-class Dashboard extends Component {
 
+class Dashboard extends Component {
 
     constructor(props) {
         super(props)
         this.state = {
-            query: ''
+            query: '',
+            order: 'desc'
         }
     }
 
@@ -29,6 +30,14 @@ class Dashboard extends Component {
         }
     }
 
+    setNewest = () => {
+        this.setState({order: 'desc'})
+    }
+  
+    setOldest = () => {
+        this.setState({order: 'asc'})        
+    }
+  
 
     render() {
 
@@ -50,7 +59,7 @@ class Dashboard extends Component {
                                 onChange={(event) => this.updateQuery(event.target.value)} 
                                 query={this.state.query}/>
                             <Recent />                  
-                            <Sorter />
+                            <Sorter  setNewest={this.setNewest} setOldest={this.setOldest}/>
                         </Col>
                     </Row>
                 </Grid>
@@ -70,5 +79,7 @@ const mapStateToProps = (state) => {
 }
 export default compose(
     connect(mapStateToProps),
-    firestoreConnect([{ collection: 'posts' , orderBy: ['createdAt', 'desc'] }])   
+    firestoreConnect(
+        [{ collection: 'posts' , orderBy: ['createdAt', 'desc']}]
+    )   
 )(Dashboard)

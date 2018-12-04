@@ -11,7 +11,7 @@ import './brand.css'
 import './signIn.css'
 
 import './createPost.css'
-import './postSummary.css'
 import './postDetails.css'
 import './about.css'
 import './widgets.css'
+import './postSummary.css'

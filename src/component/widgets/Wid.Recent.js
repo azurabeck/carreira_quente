@@ -16,27 +16,33 @@ class Recent extends Component {
       <div className='sidebar'>
             <div className='sidebarBlock'>  
                 <h2>Recent on blog</h2>
-                <Row>
+                <Row className='mt-30 mb-20'>
                       {
                         posts && posts.slice(0,1).map(post => {
                           return (
-                            <div key={post.id}>
-                                <div className='recent-post'>
-                                    <label className='image'>
-    
-                                        <img src={post.image} alt='' />
-    
-                                    </label>
-    
-                                    <label className='title'>{post.title}</label>
-                                    <label className='authorAndDate'>{post.authorLastName} {post.authorFirstName} * {moment(post.createdAt.toDate()).calendar()}}</label>
-                                    <span className='readBtn' ><Link to={`/post/${post.id}`}>Read More</Link></span>
-                                    
-                                </div>      
-                            </div>
+                            <Link to={`/post/${post.id}`}>
+                                <Row key={post.id}>
+
+                                      <Col md={5} className='recentPostImage'>
+                                          <label className='image'>    
+                                              <img src={post.image} alt='' />    
+                                          </label>
+                                          
+                                          <label className='firstNew'>01</label>
+                                      </Col>
+
+                                      <Col md={7} className='recentPostDes'>                                  
+                                        <label className='title'>{post.title}</label>
+                                        <label className='authorAndDate'>{post.authorFirstName} {post.authorLastName}</label>
+                                      </Col>
+        
+                                </Row>
+                            </Link>
                           )
                         })   
                       } 
+
+                      
 
                 </Row>
           </div>

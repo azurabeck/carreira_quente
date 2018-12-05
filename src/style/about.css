@@ -1,7 +1,102 @@
+.aboutCol {
+    padding: 0 65px; 
+}
+
+
+.aboutTitle {
+    color: #444343;
+    font-size: 16px;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.aboutParagraph {
+    font-family: 'Slabo 27px', serif;
+    color: #2F2E2E;
+    font-size: 17px;
+    letter-spacing: 0.07em;
+    margin-bottom: 20px;
+}
+
+.aboutSignature {
+    text-align: right;
+    margin-top: 55px;
+    line-height: 0.9;
+}
+
+.aboutSig1 {
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.aboutSig2 {
+    font-weight: 100;
+    font-style: italic;
+    font-size: 13px;
+}
+
+.contactCol {
+    display: block;
+    text-align: center;
+}
+
+.contactMe {
+    display: block;
+    width: 100%;
+    text-align: center
+}
+
+.blockContact {
+    background-color: white;
+    width: 50%;
+    text-align: center;
+    padding-bottom: 20px;
+}
+
+.blockContact > img {
+    margin-bottom: 20px;
+}
+
+.blockContact .title {
+    padding-left: 15px;
+    font-size: 12px;
+    font-weight: 600;
+    color: #575252;
+    letter-spacing: 0.09em;
+}
+
+.blockContact .sub {
+    padding-left: 15px;
+    font-size: 15px;
+    font-weight: 500;
+    color: #575252;
+    letter-spacing: 0.09em;
+    font-family: 'Slabo 27px', serif;
+}
+
+.blockContact .email {
+    font-size: 15px;
+    font-weight: 500;
+    color: #575252;
+    letter-spacing: 0.09em;
+    font-family: 'Slabo 27px', serif;
+    text-decoration: underline;
+}
+
+.blockContact > a {
+    color: #959595;
+}
+
+.blockContact > a:hover {
+    color: #333;
+}
+
 .formContact {
     padding: 50px;
     padding-top: 0;
 }
+
+
 
 .titleContact {
     margin: 15px;

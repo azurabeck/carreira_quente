@@ -1,38 +1,18 @@
 import React, { Component } from 'react'
-import { connect } from 'react-redux'
-import { compose } from 'redux'
-import { firestoreConnect } from 'react-redux-firebase'
 import { Row, Col } from 'react-bootstrap'
-import { createContact } from '../../store/actions/contactActions'
+import Image from '../../image/foto1.jpg'
 
 // COMPONENT IMPORT
 import Brand from '../layout/Brand'
 
+// EXTERNAL LIBRARY
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faLinkedin } from '@fortawesome/free-brands-svg-icons';
+
 
 export class About extends Component {
 
-    state = {
-        name:'',
-        email: '',
-        tel: '',
-        content:'',
-    }
-
-    handleChange = (e) => {
-        this.setState({
-            [e.target.id]: e.target.value
-        })
-      }
-    
-      handleSubmit = (e) => {
-        e.preventDefault();
-        this.props.createContact(this.state);
-      }
-
-
   render() {
-
-    const { about } = this.props
 
     return(
         <section>
@@ -43,33 +23,42 @@ export class About extends Component {
             
                 <Row>
 
-                    
-                        <Row><Col md={12}><label className='formPageTitle'>About me</label></Col></Row>
+
+                        <Col md={6} className='aboutCol'>
+                        
+                            <label className='aboutTitle mb-35'>Ofereça desafios, e não ameaças...</label>
+                        
+                            <p className='aboutParagraph mb-15'>O momento de crise que vivemos é uma excelente oportunidade para falarmos de liderança e seus diferenciais.</p>
+                            <p className='aboutParagraph'>Na minha visão de recrutadora, a maior vantagem que uma companhia pode ter em relação aos seus concorrentes são 
+                               as pessoas enxergarem um significado no seu trabalho. Processos são gerenciados por pessoas e são elas que fazem a diferença. 
+                               O que todos buscamos, no fundo, é um sentido, é a realização individual. Uma empresa diferenciada precisa de pessoas realizadas!!
+                            </p>
+
+                            <div className='aboutSignature'>
+
+                                <label className='aboutSig1'>Juliana Motta</label><br />
+                                <label className='aboutSig2'>H.R Director of PSafe Tecnologia</label>
+
+                            </div>
                        
-                        <Col md={6}>
-                            {
-                                about && about.map(about => {
-                                    return (
-                                        <p>{about.content}</p>
-                                    ) 
-                                })   
-                            } 
-                        
                         </Col>
+
+                       
+                        <Col md={6} className='contactCol'>
                         
-                        <Col md={6} className='formContact'>
                         
-                            <form onSubmit={this.handleSubmit}>
+                            <div className='contactMe'>
+                                    <label className='blockContact'>
+                                        <img src={Image} /><br />
+                                        <span className='title'>Want to connect?</span><br /><br />
+                                        <span className='sub'>Email me at: <a className='email' href='rebeccagsouza@gmail.com'>info@mysite.com</a></span><br /><br />
+                                        <a href="https://www.linkedin.com/in/julianamotta/" title="linkedin"><FontAwesomeIcon icon={faLinkedin} size='2x' /></a>
+                                    </label>
+                                        
 
-                                <input type='text' id='name' placeholder='name' onChange={this.handleChange}></input>
-                                <input type='email' id='email' placeholder='email' onChange={this.handleChange}></input>
-                                <input type='tel' id='tel' placeholder='tel' onChange={this.handleChange}></input>
-                                <textarea id='content' placeholder='Send me a msg' onChange={this.handleChange}></textarea>
+                            </div>
 
-                                <Row className='buttonRow'><button className="contactBtn" type='submit' onClick={this.handleSubmit}>Send</button></Row>
-                                
-
-                            </form>                            
+                        
                         
                         </Col>
 
@@ -85,21 +74,6 @@ export class About extends Component {
 
   
 
-const mapDispatchToProps = (dispatch) => {
-    return {
-        createContact: (contact) => dispatch(createContact(contact))
-    }
-}
-
-const mapStateToProps = (state) => {
-    return {
-        about: state.firestore.ordered.about
-    }
-}
-
-export default compose(
-    connect(mapStateToProps, mapDispatchToProps),
-    firestoreConnect([{ collection: 'about' }])
-)(About)
+export default About
   
   

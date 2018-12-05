@@ -4,6 +4,9 @@ export const createPost = (post) => {
         const firestore = getFirestore();
         const profile = getState().firebase.profile;
         const authorId = getState().firebase.auth.uid;
+
+        console.log(post)
+
         firestore.collection('posts').add({
             ...post, 
             authorFirstName: profile.firstName,

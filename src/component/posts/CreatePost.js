@@ -22,6 +22,7 @@ export class CreatePost extends Component {
     this.state = { 
       title: post ? post.title : '', 
       content: post ? post.content : '',
+      subtitle: post ? post.subtitle : '',
       image:  post ? post.image : imageDefault,
     }
 
@@ -106,6 +107,13 @@ export class CreatePost extends Component {
                                 </div>           
                             </div>
 
+                            <div className='formBlock'>            
+                                <label htmlFor='subtitle' className='formTitle'>Subtitle</label>
+                                <div className='formInput'>
+                                    <input type='text' id='subtitle' onChange={this.handleChange} value={this.state.subtitle}/> 
+                                </div>           
+                            </div>
+
                             <div className='formBlock'>                      
                                 <label htmlFor='content'>Post Content</label>
                                 <div className='formInput'>
@@ -124,7 +132,7 @@ export class CreatePost extends Component {
               </Row>
 
               <div className='formButton'>            
-                  <button className='enter' type='submit'>Create</button>            
+                  <button className='enter' type='submit'>{ isEdit ? 'Save' : 'Create'}</button>            
               </div>
         
         </form>

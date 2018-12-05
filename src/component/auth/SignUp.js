@@ -2,7 +2,10 @@ import React, { Component } from 'react'
 import { Redirect } from 'react-router-dom'
 import { connect } from 'react-redux'
 import { signUp } from '../../store/actions/authActions'
+import { Row, Col } from 'react-bootstrap'
 
+import { firestoreConnect } from 'react-redux-firebase'
+import { compose } from 'redux'
 
 export class SignUp extends Component {
 
@@ -28,52 +31,82 @@ export class SignUp extends Component {
 
   render() {
 
-    const { auth , authError} = this.props
+    const { auth , authError , users} = this.props
     if(!auth.uid) { return <Redirect to='/signin' /> }
-
-    return (
-      <div className='container'>
-        <form className='white' onSubmit={this.handleSubmit}>
-        
-            <h5 className='grey-text text-darken-3'>Sign In</h5>
-            <div className='input-field'>
-            
-                <label htmlFor='email'>Email</label>
-                <input type='email' id='email' onChange={this.handleChange}/>
-            
-            </div>
-
-            <div className='input-field'>
-            
-                <label htmlFor='password'>Email</label>
-                <input type='password' id='password' onChange={this.handleChange}/>
-        
-            </div>
-
-            <div className='input-field'>
-                
-                <label htmlFor='lastName'>Last Name</label>
-                <input type='text' id='lastName' onChange={this.handleChange}/>
     
-            </div>
+    return (
+      <div className='contentCreate'>
 
-            <div className='input-field'>
+        <label className='formPageTitle'>
+              <span className='colorBlue'>Create </span> admin
+        </label>
+
+
+        <div className='form'>
+            <form onSubmit={this.handleSubmit}>
+            
+                <Row className='adminList'>
+
+                    <Col md={3} className='colFom'>
+                        <input type='text' id='firstName' className="inputAdmin" placeholder='First Name' onChange={this.handleChange}/>
+                    </Col>    
+                    <Col md={3} className='colFom'>
+                        <input type='text' id='lastName' className="inputAdmin" placeholder='Last Name' onChange={this.handleChange}/>
+                    </Col>    
+                    <Col md={3} className='colFom'>
+                        <input type='email' id='email' className="inputAdmin" placeholder='Email' onChange={this.handleChange}/>
+                    </Col>    
+                    <Col md={2} className='colFom'>
+                        <input type='password' id='password' className="inputAdmin" placeholder='password' onChange={this.handleChange}/>
+                    </Col>    
+                    <Col md={1} className='colFom'>
+                        <button className='btnAdmin'>Sign Up</button>
+                    </Col>    
+
+                    <Col md={12}>                            
+                        <div className='text-red'> { authError ? <p>{authError}</p> : null } </div>
+                    </Col>
+
+                </Row>
+            
+                 
+            </form>
+
+                <Row>
+                    <label className='userListTitle mt-25 mb-15'>User List</label>
+                </Row>
+
+
+                { users ? 
                 
-                <label htmlFor='firstName'>First Name</label>
-                <input type='text' id='firstName' onChange={this.handleChange}/>
-        
-            </div>
+                    (
+                        users.map((user) => {
+                            return(
+                                <Row>                                
+                                    <Col md={3} className='colFom'>
+                                        <label className="inputAdmin">{user.firstName}</label> 
+                                    </Col>    
+                                    <Col md={3} className='colFom'>
+                                        <label className="inputAdmin">{user.lastName}</label> 
+                                    </Col>    
+                                    <Col md={3} className='colFom'>
+                                        <label className="inputAdmin">{user.email}</label> 
+                                    </Col>    
+                                    <Col md={2} className='colFom'>
+                                        <label className="inputAdmin">{user.password}</label> 
+                                    </Col>    
+                                    <Col md={1} className='colFom'>
+                                    </Col>    
+                                </Row>
+                            )
+                        })
+                    )
+                
+                
+                    : ''
+                }            
 
-            <div className='input-field'>
-            
-                <button className='btn pink lighten-1 z-depth-0'>Sign Up</button>
-                <div className='text-red'>
-                    { authError ? <p>{authError}</p> : null }
-                </div>
-            
-            </div>
-        
-        </form>
+        </div>
       </div>
     )
   }
@@ -82,7 +115,8 @@ export class SignUp extends Component {
 const mapStateToProps = (state) => {
     return {
         auth: state.firebase.auth,
-        authError: state.auth.authError
+        authError: state.auth.authError,
+        users: state.firestore.ordered.users
     }
 }
 const mapDispatchToProps = (dispatch) => {
@@ -90,4 +124,11 @@ const mapDispatchToProps = (dispatch) => {
         signUp: (newUser) => dispatch(signUp(newUser))
     }
 }
-export default connect(mapStateToProps, mapDispatchToProps)(SignUp)
+export default compose(
+        connect(mapStateToProps, mapDispatchToProps),
+        firestoreConnect(
+            [{collection: 'users'}]
+        )    
+    )(SignUp)
+
+

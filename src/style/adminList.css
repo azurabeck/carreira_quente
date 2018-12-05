@@ -1,0 +1,79 @@
+.adminList {
+    border-bottom: 1px dashed #cecdcd;
+}
+
+.colFom {
+    padding: 2px;
+    padding-bottom: 15px;
+}
+
+.inputAdmin {
+    border: none;
+    margin: 0;
+    padding: 0;
+    display: block;
+    width: 90%;
+    border: none;
+    background-color: transparent;
+    box-shadow: 2px 2px 9px 0px #cecdcd;
+    padding-left: 5px;
+    height: 30px;
+}
+
+.btnAdmin {
+    height: 30px;
+    border: none;
+    background-color: #20AEC6;
+    color: white;
+    font-size: 12px;
+    width: 100%;
+    border-radius: 2px;
+}
+
+.btnAdmin:hover {
+    background-color: #0a8195;
+}
+
+.userListTitle {
+    font-size: 18px;
+    color: gray;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    font-weight: 500;
+}
+
+ul.userList {
+    display: inline-flex;
+    list-style: none;
+    padding: 0;
+}
+
+ul.userList > li {
+    margin-right: 5px;
+}
+
+label.inputAdmin {
+    color: gray;
+    padding-top: 5px;
+    font-weight: 300;
+    box-shadow: 2px 2px 5px 0px #cecdcd;
+}
+
+/* Change Autocomplete styles in Chrome*/
+input.inputAdmin:-webkit-autofill,
+input.inputAdmin:-webkit-autofill:hover, 
+input.inputAdmin:-webkit-autofill:focus
+textarea.inputAdmin:-webkit-autofill,
+textarea.inputAdmin:-webkit-autofill:hover
+textarea.inputAdmin:-webkit-autofill:focus,
+select.inputAdmin:-webkit-autofill,
+select.inputAdmin:-webkit-autofill:hover,
+select.inputAdmin:-webkit-autofill:focus {
+  border: none;
+  -webkit-text-fill-color: #333;
+  -webkit-box-shadow: 0 0 0px 1000px #efefef inset;
+  transition: background-color 5000s ease-in-out 0s;
+  font-size: 14px;
+  letter-spacing: 0.05em;  
+  box-shadow: 2px 2px 9px 0px #cecdcd;
+}

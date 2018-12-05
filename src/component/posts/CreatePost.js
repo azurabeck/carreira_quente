@@ -7,6 +7,8 @@ import { Redirect } from 'react-router-dom'
 
 // EXTERNAL LIBRARY
 import { Row, Col } from 'react-bootstrap'
+import ReactQuill from 'react-quill'
+import 'react-quill/dist/quill.snow.css'
 
 let imageDefault = 'https://i.pinimg.com/564x/36/43/bb/3643bbfca40d688554c770adfd42f039.jpg'
 
@@ -107,10 +109,12 @@ export class CreatePost extends Component {
                             <div className='formBlock'>                      
                                 <label htmlFor='content'>Post Content</label>
                                 <div className='formInput'>
-                                    <textarea 
+                                    <ReactQuill 
                                       className='materialize-text-area' 
+                                      modules={CreatePost.modules}
+                                      formats={CreatePost.modules}
                                       id='content' 
-                                      onChange={this.handleChange}
+                                      onChange={e => {this.setState({content: e})}}
                                       value={this.state.content}/> 
                                 </div>                 
                             </div>
@@ -149,6 +153,24 @@ const mapDispatchToProps = (dispatch) => {
   }
 }
 
+CreatePost.modules = {
+  toolbar: [    
+    [{'header' : '1'}, {'header' : '2'}, {'font' : []}]  ,
+    [{'size' : []}]  ,
+    ['bold' , 'italic' , 'underline' , 'strike' , 'bloquote']  ,
+    [{'list' : 'ordered'} , {'list' : 'bullet'}]  ,
+    ['link', 'image', 'video']  ,
+    ['clean'] ,
+    ['code-block']
+  ]
+}
+
+CreatePost.formats = [
+  'header', 'font', 'size' , 
+  'bold' , 'italic' , 'underline' , 'strike' , 'blockquote' ,
+  'list' , 'bullet' ,
+  'link' , 'image' , 'video' , 'code-block'
+]
 
 export default compose(
   connect(mapStateToProps, mapDispatchToProps),

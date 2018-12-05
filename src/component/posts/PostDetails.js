@@ -8,6 +8,7 @@ import { Row , Col } from 'react-bootstrap'
 
 // COMPONENTS IMPORT 
 import Brand from '../layout/Brand'
+import renderHTML from 'react-render-html'
 
 const PostDetails = (props) => {
 
@@ -32,7 +33,7 @@ const PostDetails = (props) => {
                             <li>Posted by <span>{post.authorFirstName} {post.authorLastName}</span></li>
                             <li>Post at: <span>{moment(post.createdAt.toDate()).calendar()}</span></li>
                         </ul>
-                        <p className='postText onViewMode'>{post.content}</p>                    
+                        <p className='postText onViewMode'>{renderHTML(post.content)}</p>                    
                     </Col>
 
                 </Row>

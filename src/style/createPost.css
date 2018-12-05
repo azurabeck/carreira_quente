@@ -106,3 +106,6 @@ select {
     background-color: #b2b0b0;
   }
   
+.ql-container.ql-snow {
+  height: 275px !important;
+}

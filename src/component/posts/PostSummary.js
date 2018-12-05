@@ -2,6 +2,9 @@ import React from 'react'
 import moment from 'moment'
 import { Row, Col } from 'react-bootstrap'
 
+// EXTERNAL LIBRARY
+import renderHTML from 'react-render-html'
+
 const PostSummary = (props) => {
 
     const { post } = props;
@@ -17,7 +20,7 @@ const PostSummary = (props) => {
 
                 <Col md={8}>
                     <label className='postTitle'>{post.title}</label>          
-                    <label className='postDescription'>{post.content} </label>
+                    <label className='postDescription'>{renderHTML(post.content)} </label>
                     <ul className='postDetails'>
                         <li>Author: <span>{post.authorLastName} {post.authorFirstName}</span></li>
                         <li>Post at: <span>{moment(post.createdAt.toDate()).calendar()}</span></li>

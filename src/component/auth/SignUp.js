@@ -3,7 +3,7 @@ import { Redirect } from 'react-router-dom'
 import { connect } from 'react-redux'
 import { signUp } from '../../store/actions/authActions'
 import { Row, Col } from 'react-bootstrap'
-
+import MaterialIcon from 'material-icons-react'
 import { firestoreConnect } from 'react-redux-firebase'
 import { compose } from 'redux'
 
@@ -81,24 +81,26 @@ export class SignUp extends Component {
                 
                     (
                         users.map((user) => {
+
                             return(
-                                <Row>                                
+                                <Row key={user.id}>                                
                                     <Col md={3} className='colFom'>
-                                        <label className="inputAdmin">{user.firstName}</label> 
-                                    </Col>    
+                                        <input className="inputAdmin" defaultValue={user.firstName} readOnly></input> 
+                                    </Col>  
                                     <Col md={3} className='colFom'>
-                                        <label className="inputAdmin">{user.lastName}</label> 
-                                    </Col>    
-                                    <Col md={3} className='colFom'>
-                                        <label className="inputAdmin">{user.email}</label> 
-                                    </Col>    
-                                    <Col md={2} className='colFom'>
-                                        <label className="inputAdmin">{user.password}</label> 
-                                    </Col>    
+                                        <input className="inputAdmin" defaultValue={user.lastName} readOnly></input> 
+                                    </Col>  
+                                    <Col md={5} className='colFom'>
+                                        <input className="inputAdmin" defaultValue={user.email} readOnly></input> 
+                                    </Col>  
                                     <Col md={1} className='colFom'>
+                                        <div className='userDel'>
+                                            <MaterialIcon icon='delete' id='userButtonDelete'/>
+                                        </div>
                                     </Col>    
                                 </Row>
-                            )
+                            ) 
+                            
                         })
                     )
                 
@@ -113,6 +115,7 @@ export class SignUp extends Component {
 }
 
 const mapStateToProps = (state) => {
+    console.log('aqui' , state.firebase)
     return {
         auth: state.firebase.auth,
         authError: state.auth.authError,

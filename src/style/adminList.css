@@ -42,21 +42,19 @@
     font-weight: 500;
 }
 
-ul.userList {
-    display: inline-flex;
-    list-style: none;
-    padding: 0;
+.userDel {
+    text-align: right;
 }
 
-ul.userList > li {
-    margin-right: 5px;
+#userButtonDelete {
+    padding: 3px;
+    padding-top: 5px; 
+    text-align: center;
 }
 
-label.inputAdmin {
-    color: gray;
-    padding-top: 5px;
-    font-weight: 300;
-    box-shadow: 2px 2px 5px 0px #cecdcd;
+#userButtonDelete:hover {
+    color: #D85050;
+    cursor: pointer;
 }
 
 /* Change Autocomplete styles in Chrome*/

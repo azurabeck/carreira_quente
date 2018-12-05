@@ -8,6 +8,8 @@ import { Redirect } from 'react-router-dom'
 // EXTERNAL LIBRARY
 import { Row, Col } from 'react-bootstrap'
 
+let imageDefault = 'https://i.pinimg.com/564x/36/43/bb/3643bbfca40d688554c770adfd42f039.jpg'
+
 export class CreatePost extends Component {
 
   constructor(props) {
@@ -18,7 +20,7 @@ export class CreatePost extends Component {
     this.state = { 
       title: post ? post.title : '', 
       content: post ? post.content : '',
-      image:  post ? post.image : '',
+      image:  post ? post.image : imageDefault,
     }
 
     this.handleChange = this.handleChange.bind(this)
@@ -77,7 +79,9 @@ export class CreatePost extends Component {
                           <div className='formBlock'>
                               <label htmlFor='image' className='formTitle'>Image URL</label>
                               <div className='formInput'>
-                                    <input type='text' id='image' onChange={this.handleChange} value={this.state.image}/> 
+                                    <input 
+                                        type='text' id='image' 
+                                        onChange={this.handleChange} value={this.state.image}/> 
                               </div>
                             </div>
 

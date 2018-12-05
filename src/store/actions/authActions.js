@@ -44,3 +44,20 @@ export const signUp = (newUser) => {
         })
     }
 }
+
+export const deleteUser = (userId) => {
+    return (dispatch, getState, { getFirebase, getFirestore })  => {
+        
+        const firebase = getFirebase();
+        const user = firebase.auth().currentUser
+        const firestore = getFirestore();
+
+        firestore.collection('users').doc(userId).delete()
+
+        user.delete().then(() => {            
+            dispatch({type: 'DELETE_USER_SUCCESS'})
+        }).catch(err => {
+            dispatch({type: 'DELETE_USER_ERROR', err})
+        })
+    }
+}

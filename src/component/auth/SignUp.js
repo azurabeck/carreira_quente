@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { Redirect } from 'react-router-dom'
 import { connect } from 'react-redux'
-import { signUp } from '../../store/actions/authActions'
+import { signUp , deleteUser } from '../../store/actions/authActions'
 import { Row, Col } from 'react-bootstrap'
 import MaterialIcon from 'material-icons-react'
 import { firestoreConnect } from 'react-redux-firebase'
@@ -27,6 +27,10 @@ export class SignUp extends Component {
     e.preventDefault();
     this.props.signUp(this.state)
   }
+
+  handleClick = (userId, e) => {
+    this.props.deleteUser(userId)
+ }
 
 
   render() {
@@ -82,6 +86,8 @@ export class SignUp extends Component {
                     (
                         users.map((user) => {
 
+                            const userId = user.id
+
                             return(
                                 <Row key={user.id}>                                
                                     <Col md={3} className='colFom'>
@@ -94,7 +100,7 @@ export class SignUp extends Component {
                                         <input className="inputAdmin" defaultValue={user.email} readOnly></input> 
                                     </Col>  
                                     <Col md={1} className='colFom'>
-                                        <div className='userDel'>
+                                        <div className='userDel' onClick={(e) => this.handleClick(userId, e)}>
                                             <MaterialIcon icon='delete' id='userButtonDelete'/>
                                         </div>
                                     </Col>    
@@ -124,7 +130,8 @@ const mapStateToProps = (state) => {
 }
 const mapDispatchToProps = (dispatch) => {
     return {
-        signUp: (newUser) => dispatch(signUp(newUser))
+        signUp: (newUser) => dispatch(signUp(newUser)),
+        deleteUser: (userId) => dispatch(deleteUser(userId))
     }
 }
 export default compose(

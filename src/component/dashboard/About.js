@@ -1,9 +1,13 @@
 import React, { Component } from 'react'
 import { Row, Col } from 'react-bootstrap'
+
+// IMAGE IMPORTS
 import Image from '../../image/foto1.jpg'
+import Signature from '../../image/signature.png'
 
 // COMPONENT IMPORT
 import Brand from '../layout/Brand'
+
 
 // EXTERNAL LIBRARY
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
@@ -36,6 +40,8 @@ export class About extends Component {
 
                             <div className='aboutSignature'>
 
+                                <img src={Signature} className='signature' />
+
                                 <label className='aboutSig1'>Juliana Motta</label><br />
                                 <label className='aboutSig2'>H.R Director of PSafe Tecnologia</label>
 
@@ -53,8 +59,7 @@ export class About extends Component {
                                         <span className='title'>Want to connect?</span><br /><br />
                                         <span className='sub'>Email me at: <a className='email' href='rebeccagsouza@gmail.com'>info@mysite.com</a></span><br /><br />
                                         <a href="https://www.linkedin.com/in/julianamotta/" title="linkedin"><FontAwesomeIcon icon={faLinkedin} size='2x' /></a>
-                                    </label>
-                                        
+                                    </label>                                        
 
                             </div>
 

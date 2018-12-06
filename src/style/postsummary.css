@@ -9,7 +9,7 @@
 }
 
 .imageDetails img {
-  max-height: 130px;
+  max-height: 150px;
   -o-object-fit: cover;
   object-fit: cover;
   width: 100%;
@@ -18,23 +18,25 @@
 }
 
 .postDescription {
-    height: 57px;
-    max-height: 57px;
-    font-size: 12px;
-    color: #b2b0b0;
-    border: 1px dashed #e5dddd;
+    max-height: 150px;
+    font-size: 11px;
+    border-top: 1px dashed #e5dddd;
+    border-bottom: 1px dashed #e5dddd;
     width: 100%;
     padding: 5px;
-    overflow-y: auto;
+    overflow-y: hidden;
+    font-weight: 100;
   }
 
   ul.postDetails {
     list-style: none;
     padding: 0px;
+    line-height: 0;
   }
   ul.postDetails li {
     display: inline-flex;
     margin-right: 15px;
+    font-size: 10px;
   }
   
   ul.postDetails li span {
@@ -51,4 +53,11 @@
 
 .bloggerButton .readBtn {
     position: unset;
+}
+
+.readMore {
+  font-size: 10px;
+  color: black;
+  font-weight: 600;
+
 }

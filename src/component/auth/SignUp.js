@@ -89,8 +89,17 @@ export class SignUp extends Component {
                             const userId = user.id
 
                             return(
-                                <Row key={user.id}>                                
-                                    <Col md={3} className='colFom'>
+                                <Row key={user.id} className='userList pl-0'>         
+
+                                    <Col md={4} className='pl-0'>
+                                        <label className='userLabel'>Admin Name: <span>{user.firstName} {user.lastName}</span> </label>
+                                    </Col>
+
+                                    <Col md={6} className='pl-0'>
+                                        <label className='userLabel'>Email: <span>{user.email}</span></label>                                    
+                                    </Col>
+
+                                    {/* <Col md={3} className='colFom'>
                                         <input className="inputAdmin" defaultValue={user.firstName} readOnly></input> 
                                     </Col>  
                                     <Col md={3} className='colFom'>
@@ -103,7 +112,7 @@ export class SignUp extends Component {
                                         <div className='userDel' onClick={(e) => this.handleClick(userId, e)}>
                                             <MaterialIcon icon='delete' id='userButtonDelete'/>
                                         </div>
-                                    </Col>    
+                                    </Col>     */}
                                 </Row>
                             ) 
                             

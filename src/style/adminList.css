@@ -2,6 +2,25 @@
     border-bottom: 1px dashed #cecdcd;
 }
 
+.userList {
+    border-bottom: 1px dashed #cecdcd;
+    padding: 15px;
+}
+
+.userLabel {
+    font-weight: 500;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: gray;
+}
+
+.userLabel > span {
+    color: #0a8195;
+    text-transform: none;
+    font-size: 13px;
+}
+
 .colFom {
     padding: 2px;
     padding-bottom: 15px;
